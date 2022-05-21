@@ -1,10 +1,45 @@
 import java.util.ArrayList;
 public class Solution {
-    public static void main( String args[]) {
+    public static void main( String[] args) {
+        if (args.length < 0) {  //TODO: I'll do this when I run tests off a unix terminal more often.
+            System.out.println("Program does not currently support parameters");
+            return;
+        }
 
+        ArrayList<String> testData = new ArrayList<>();   // Used to hold the test samples
+        testData.add("III");
+        testData.add("LVIII");
+        testData.add("MCMXCIV");    //TODO:  it might be cool to have a random roman numeral generator function
+
+        ArrayList<String> results = calculateResults(testData);
+
+        for ( String result : results ) {
+            System.out.println(result);
+        }
     }
 
-    private int romanToInt(String s) {
+    /**
+     * This method just takes an array list of test values and returns the results in an array list
+     *      in the future I may add implementations for writing to a file or csv. It would be easier to just have
+     *      a method that returns the String value for each result.
+     * @param testData
+     * @return
+     */
+    private static ArrayList<String> calculateResults( ArrayList<String> testData) {
+        ArrayList<String> results = new ArrayList<>();
+        for ( String data : testData ) {
+            results.add("Roman Numeral:\t" + data +
+                    "\nInteger:\t" + romanToInt(data));
+        }
+        return results;
+    }
+
+    /**
+     * Convert a Roman Numeral String to the respective integer value
+     * @param s Roman Numeral String
+     * @return integer value of the Roman Numeral
+     */
+    private static int romanToInt(String s) {
         int n = s.length();
         int value = 0 ;
         int current;
@@ -31,7 +66,12 @@ public class Solution {
         return value;
     }
 
-    private int getValueOfChar(char c) {
+    /**
+     * Determine the integer value of a roman numeral character
+     * @param c roman numeral
+     * @return integer value of roman numeral
+     */
+    private static int getValueOfChar(char c) {
         switch(c) {
             case 'I':
                 return 1;
