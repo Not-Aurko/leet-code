@@ -8,8 +8,8 @@
  */
 public class Solution {
     public ListNode addTwoNumbers( ListNode l1, ListNode l2 ) {
-        ListNode dummy_head = new ListNode(0);  // Add the values of l1 and l2 into here
-        ListNode l3 = dummy_head;                   // Use this to get the final value
+        ListNode dummy_head = new ListNode(0);  // Placeholder for final result
+        ListNode l3 = dummy_head;                   // use l3 as a node to dump l1 + l2 into
 
         int carry_over = 0;  // use this to handle carry over when int > 10
 
@@ -39,8 +39,3 @@ public class Solution {
         return dummy_head.next;
     }
 }
-/*
-    243
-    564
-       7 10 7
- */
